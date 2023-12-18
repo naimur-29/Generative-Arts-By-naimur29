@@ -1,6 +1,5 @@
 class Boid {
-  constructor(isThisOne = false) {
-    this.isThisOne = isThisOne;
+  constructor() {
     this.perceptionRadius = 30;
     this.radius = 4;
     this.maxSpeed = 4;
@@ -33,24 +32,40 @@ class Boid {
   }
 
   draw() {
-    if (this.isThisOne) this.drawPerceptionRadius();
-
     push();
     translate(this.position.x, this.position.y);
     rotate(this.velocity.heading());
+
     const color = [
       map(this.velocity.x, -this.maxSpeed, this.maxSpeed, 0, 255),
       map(this.velocity.y, -this.maxSpeed, this.maxSpeed, 0, 255),
       255,
       map(quadTreeTransparencySlider.value(), 0, 255, 255, 0),
     ];
-
     fill(color);
-    if (this.isThisOne) fill(255, 0, 0, 200);
+
+    let r = this.radius;
     noStroke();
-    ellipse(0, 0, this.radius * 2, this.radius * 2);
+
+    ellipse(0, 0, r * 2, r * 2);
     rectMode(CENTER);
-    rect(0, 0, this.radius * 5, this.radius);
+    rect(0, 0, r * 5, r);
+    pop();
+  }
+
+  spectate() {
+    push();
+    translate(this.position.x, this.position.y);
+    rotate(this.velocity.heading());
+
+    fill(51, 255, 151);
+
+    let r = this.radius * 1.25;
+    noStroke();
+
+    ellipse(0, 0, r * 2, r * 2);
+    rectMode(CENTER);
+    rect(0, 0, r * 5, r);
     pop();
   }
 

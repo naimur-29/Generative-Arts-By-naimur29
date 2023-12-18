@@ -9,10 +9,10 @@ class Rectangle {
 
   draw(alpha = 255, color = null) {
     noFill();
+    fill(...this.color, alpha / 50);
     if (color) {
       stroke(...color, alpha);
     } else stroke(...this.color, alpha);
-    // strokeWeight(0.2);
     rectMode(CENTER);
     rect(this.x, this.y, this.w * 2, this.h * 2);
   }

@@ -86,4 +86,10 @@ function draw() {
     nextQuadTree.draw(quadTreeTransparencySlider.value());
 
   quadTree = nextQuadTree;
+
+  // fun:
+  // const r = new Rectangle(mouseX, mouseY, 100, 100);
+  // r.draw();
+  // const bArr = quadTree.query(r);
+  // bArr.forEach((b) => b.spectate());
 }
