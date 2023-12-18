@@ -68,11 +68,6 @@ class QuadTree {
         this.subDivide();
       }
 
-      //   if (this.topRight.insert(element)) return true;
-      //   else if (this.topLeft.insert(element)) return true;
-      //   else if (this.bottomRight.insert(element)) return true;
-      //   else if (this.bottomLeft.insert(element)) return true;
-
       this.topRight.insert(element) ||
         this.topLeft.insert(element) ||
         this.bottomRight.insert(element) ||
