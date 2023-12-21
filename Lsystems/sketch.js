@@ -60,7 +60,7 @@ function turtle(gen, len) {
     work[gen[i]](len);
   }
 
-  t += 500;
+  t += 10;
   if (t >= gen.length) {
     t = 0;
     noLoop();
